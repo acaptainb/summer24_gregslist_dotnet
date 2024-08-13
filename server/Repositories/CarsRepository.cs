@@ -59,8 +59,18 @@ public class CarsRepository
     cars(make, model, year, engineType, price, color, imgUrl, description, leaksOil, creatorId)
     VALUES(@Make, @Model, @Year, @EngineType, @Price, @Color, @ImgUrl, @Description, @LeaksOil, @CreatorId);
     
-    SELECT * FROM cars WHERE id = LAST_INSERT_ID();";
-    Car car = _db.Query<Car>(sql, carData).FirstOrDefault();
+    SELECT 
+    cars.*,
+    accounts.* 
+    FROM cars
+    JOIN accounts ON accounts.id = cars.creatorId 
+    WHERE cars.id = LAST_INSERT_ID();";
+
+    Car car = _db.Query<Car, Profile, Car>(sql, (car, account) =>
+    {
+      car.Creator = account;
+      return car;
+    }, carData).FirstOrDefault();
     return car;
   }
 }
