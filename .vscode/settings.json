@@ -9,8 +9,6 @@
     "commandCenter.border": "#15202b99",
     "sash.hoverBorder": "#eabec8",
     "statusBar.background": "#de97a8",
-    "statusBar.debuggingBackground": "#97decd",
-    "statusBar.debuggingForeground": "#15202b",
     "statusBar.foreground": "#15202b",
     "statusBarItem.hoverBackground": "#d27088",
     "statusBarItem.remoteBackground": "#de97a8",
