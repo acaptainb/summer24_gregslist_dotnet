@@ -62,7 +62,9 @@ public class CarsService
 
     carToUpdate.Description = carData.Description ?? carToUpdate.Description;
     carToUpdate.ImgUrl = carData.ImgUrl ?? carToUpdate.ImgUrl;
+    // NOTE Price must be nullable in Model for this check to work
     carToUpdate.Price = carData.Price ?? carToUpdate.Price;
+    // NOTE LeaksOil must be nullable in Model for this check to work
     carToUpdate.LeaksOil = carData.LeaksOil ?? carToUpdate.LeaksOil;
 
     _carsRepository.UpdateCar(carToUpdate);

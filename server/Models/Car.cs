@@ -8,9 +8,11 @@ public class Car
   public string Make { get; set; }
   public string Model { get; set; }
   public int Year { get; set; }
+  // will be null if property not supplied when cast
   public int? Price { get; set; }
   public string Color { get; set; }
   public string EngineType { get; set; }
+  // will be null if property not supplied when cast
   public bool? LeaksOil { get; set; }
   public string Description { get; set; }
   public string ImgUrl { get; set; }
