@@ -47,7 +47,8 @@ WHERE
   id = "66bb7bd91baeacf46d3e7517";
 
 SELECT
-  *
+  cars.*,
+  accounts.*
 FROM
   cars
   JOIN accounts ON accounts.id = cars.creatorId;

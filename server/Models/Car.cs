@@ -15,4 +15,5 @@ public class Car
   public string Description { get; set; }
   public string ImgUrl { get; set; }
   public string CreatorId { get; set; }
+  public Profile Creator { get; set; }
 }

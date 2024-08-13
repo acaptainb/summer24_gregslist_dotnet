@@ -12,9 +12,21 @@ public class CarsRepository
 
   public List<Car> GetAllCars()
   {
-    string sql = "SELECT * FROM cars;";
+    string sql = @"
+    SELECT 
+    cars.*,
+    accounts.*
+    FROM cars 
+    JOIN accounts ON accounts.id = cars.creatorId;";
 
-    List<Car> cars = _db.Query<Car>(sql).ToList();
+    // first type passed to query is the first data type on the row
+    // second type passed to query is the second data type on the row
+    // third type passed to query is the return type for the mapping function
+    List<Car> cars = _db.Query<Car, Profile, Car>(sql, (car, account) =>
+    {
+      car.Creator = account;
+      return car;
+    }).ToList();
 
     return cars;
   }
