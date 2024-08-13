@@ -1,5 +1,6 @@
 
 
+
 namespace gregslist_dotnet.Services;
 
 public class CarsService
@@ -20,6 +21,12 @@ public class CarsService
   public Car GetCarById(string carId)
   {
     Car car = _carsRepository.GetCarById(carId);
+    return car;
+  }
+
+  public Car CreateCar(Car carData)
+  {
+    Car car = _carsRepository.CreateCar(carData);
     return car;
   }
 }
