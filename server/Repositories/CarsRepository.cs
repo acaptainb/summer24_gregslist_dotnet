@@ -33,7 +33,7 @@ public class CarsRepository
     return cars;
   }
 
-  public Car GetCarById(string carId)
+  public Car GetCarById(int carId)
   {
     string sql = @"
     SELECT 

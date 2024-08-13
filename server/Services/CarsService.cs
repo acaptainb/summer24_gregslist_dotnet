@@ -18,7 +18,7 @@ public class CarsService
     return cars;
   }
 
-  public Car GetCarById(string carId)
+  public Car GetCarById(int carId)
   {
     Car car = _carsRepository.GetCarById(carId);
     return car;

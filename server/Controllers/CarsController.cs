@@ -29,7 +29,7 @@ public class CarsController : ControllerBase
 
 
   [HttpGet("{carId}")]
-  public ActionResult<Car> GetCarById(string carId)
+  public ActionResult<Car> GetCarById(int carId)
   {
     try
     {
@@ -60,4 +60,10 @@ public class CarsController : ControllerBase
   }
 
 
+  // [HttpDelete("{carId}")]
+  // [Authorize]
+  // public async Task<ActionResult<string>> DestroyCar(int carId)
+  // {
+
+  // }
 }
