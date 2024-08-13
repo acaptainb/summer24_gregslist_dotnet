@@ -36,7 +36,9 @@ DELETE FROM accounts;
 SELECT
   *
 FROM
-  accounts;
+  accounts
+WHERE
+  id = "66bb7bd91baeacf46d3e7517";
 
 UPDATE accounts
 SET
@@ -47,7 +49,8 @@ WHERE
 SELECT
   *
 FROM
-  cars;
+  cars
+  JOIN accounts ON accounts.id = cars.creatorId;
 
 INSERT INTO
   cars (
