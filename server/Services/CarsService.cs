@@ -50,4 +50,23 @@ public class CarsService
 
     return $"Your {car.Make} {car.Model} has been deleted!";
   }
+
+  public Car UpdateCar(int carId, string userId, Car carData)
+  {
+    Car carToUpdate = GetCarById(carId);
+
+    if (carToUpdate.CreatorId != userId)
+    {
+      throw new Exception("YOU CANNOT UPDATE A CAR YOU DID NOT CREATE, THAT IS FORBIDDEN, PLEASE IGNORE THE 400 ERROR CODE, IT SHOULD BE 403");
+    }
+
+    carToUpdate.Description = carData.Description ?? carToUpdate.Description;
+    carToUpdate.ImgUrl = carData.ImgUrl ?? carToUpdate.ImgUrl;
+    carToUpdate.Price = carData.Price ?? carToUpdate.Price;
+    carToUpdate.LeaksOil = carData.LeaksOil ?? carToUpdate.LeaksOil;
+
+    _carsRepository.UpdateCar(carToUpdate);
+
+    return carToUpdate;
+  }
 }

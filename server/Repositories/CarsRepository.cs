@@ -84,4 +84,22 @@ public class CarsRepository
     if (rowsAffected == 0) throw new Exception("DELETE FAILED");
     if (rowsAffected > 1) throw new Exception("DELETE DID NOT FAIL, BUT THAT IS STILL A PROBLEM");
   }
+
+  public void UpdateCar(Car carToUpdate)
+  {
+    string sql = @"
+    UPDATE
+    cars
+    SET
+    description = @Description,
+    imgUrl = @ImgUrl,
+    price = @Price,
+    leaksOil = @LeaksOil
+    WHERE id = @Id LIMIT 1;";
+
+    int rowsAffected = _db.Execute(sql, carToUpdate);
+
+    if (rowsAffected == 0) throw new Exception("UPDATE FAILED");
+    if (rowsAffected > 1) throw new Exception("UPDATE DID NOT FAIL, BUT THAT IS STILL A PROBLEM");
+  }
 }
