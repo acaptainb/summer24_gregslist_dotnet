@@ -1,4 +1,5 @@
 
+
 namespace gregslist_dotnet.Repositories;
 
 public class CarsRepository
@@ -29,5 +30,14 @@ public class CarsRepository
     }).ToList();
 
     return cars;
+  }
+
+  public Car GetCarById(string carId)
+  {
+    string sql = "SELECT * FROM cars WHERE id = @carId;";
+
+    Car car = _db.Query<Car>(sql, new { carId }).FirstOrDefault();
+
+    return car;
   }
 }
